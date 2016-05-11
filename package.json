@@ -1,0 +1,32 @@
+{
+  "name": "xit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "postinstall": "bower i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minditorrey/xit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minditorrey/xit/issues"
+  },
+  "homepage": "https://github.com/minditorrey/xit#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-stormpath": "^3.1.2",
+    "mongoose": "^4.4.16",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0"
+  }
+}

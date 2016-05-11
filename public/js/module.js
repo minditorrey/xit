@@ -1,19 +1,37 @@
-var app = angular.module('xitApp', ['ui.router']);
+var app = angular.module('xitApp', ['ui.router', 'stormpath', 'stormpath.templates', 'ui.bootstrap']);
 
-
+app.run(function($stormpath){
+  $stormpath.uiRouter({
+    loginState: 'login',
+    defaultPostLoginState: 'home'
+  });
+});
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-		.state('users', {
-			url: '/',
-			templateUrl: '/templates/users.html',
-			controller: 'usersController'
+		.state('home', { 
+			url: '/', 
+			templateUrl: '/templates/home.html',
+			controller: 'tasksController' 
 		})
-		.state('register', {
-			url: '/register',
-			templateUrl: '/templates/users.html',
-			controller: 'usersController'
+    	.state('login', { 
+    		url: '/login', 
+    		templateUrl: '/templates/login.html' 
+    	})
+    	.state('register', { 
+    		url: '/register', 
+    		templateUrl: '/templates/register.html' 
+    	})
+		.state('tasks', {
+			url: '/tasks',
+			templateUrl: '/templates/tasks.html',
+			controller: 'tasksController'
+		})
+		.state('profiles', {
+			url: '/profiles',
+			templateUrl: '/templates/profiles.html',
+			controller: 'profilesController'
 		})
 
 

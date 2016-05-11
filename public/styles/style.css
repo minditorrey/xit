@@ -1,0 +1,60 @@
+body {
+	background-color: #c4f6ff;
+
+}
+.header {
+	background-color: black;
+	color: #c4f6ff;
+	padding-top: 5px;
+
+	width: 125%;
+	margin-left: -10%;
+	padding-left: 5%;
+
+}
+
+h1 {
+	font-size: 96px;
+	font-weight: bold;
+
+}
+
+.addBtn {
+	background-color: black;
+	color: #c4f6ff;
+}
+.addIt {
+	background-color: black;
+	color: #c4f6ff;
+	margin-left: 6%;
+}
+.black {
+	background-color: #c4f6ff;
+	color: black;
+
+}
+
+.btn-md {
+	background-color: black;
+	color: #c4f6ff;
+}
+
+.tableRow {
+	margin-top: 5%;
+}
+
+div.menuBtns {
+	margin-left: 70%;
+	margin-bottom: 2%;
+
+}
+
+h2 {
+	padding-left: 5%;
+}
+
+h5 {
+	padding-left: 5%;
+	font-size: 18px;
+}
+	

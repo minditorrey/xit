@@ -1,0 +1,70 @@
+<h5>Here are all tasks, {{user.givenName}}.</h5>
+<div class="row">
+	<button class="btn btn-lg addIt" ng-click="showTable()"s>Add New Task</button>
+</div>
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-2">
+		<form ng-submit='submitForm()'>
+      
+      		<div class="form-group">
+      		  <label>Task Description</label>
+      		  <input type="text" class="form-control" required ng-model='task.username'>
+      		</div>
+		
+      		<div class="form-group">
+      		  <label>Priority</label>
+      		  <input type="text" class="form-control" required ng-model='task.priority'>
+      		</div>
+		
+      		<div class="form-group">
+      		  <label>Assigned By</label>
+      		  <input type="text" class="form-control" required ng-model='task.assignedBy'>
+      		</div>
+
+      		<div class="form-group">
+      		  <label>Due By</label>
+      		  <input type="text" class="form-control" required ng-model='task.dueBy'>
+      		</div>
+
+      		<div class="form-group">
+      		  <label>Completed At</label>
+      		  <input type="text" class="form-control" required ng-model='task.completedAt'>
+      		</div>
+      		
+		
+      		<button class="btn btn-lg addBtn">Add Task</button>     
+    	</form>
+    </div>
+</div>
+
+<div class="row tableRow">
+	<div class="col-sm-8 col-sm-offset-2">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Task</th>
+		      <th>Priority</th>
+		      <th>Assigned By</th>
+		      <th>Assigned To</th>
+		      <th>Due By</th>
+		      <th>Completed At</th>
+		      <th></th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>{{task.description}}</td>
+		      <td>{{task.assignedBy}}</td>
+		      <td>{{task.assignedTo}}</td>
+		      <td>{{task.dueBy}}</td>
+		      <td>{{task.priority}}</td>
+		      <td>{{task.completedAt}}</td>
+      		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
+              <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>
+
+		  </tbody>
+		</table>
+	</div>
+</div>
