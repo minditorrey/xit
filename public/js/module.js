@@ -1,4 +1,4 @@
-var app = angular.module('myFaceApp', ['ui.router']);
+var app = angular.module('xitApp', ['ui.router']);
 
 
 
