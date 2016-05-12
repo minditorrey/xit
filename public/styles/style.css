@@ -5,8 +5,8 @@ body {
 .header {
 	background-color: black;
 	color: #c4f6ff;
-	padding-top: 5px;
-
+	padding-top: 15px;
+	padding-bottom: 15px;
 	width: 125%;
 	margin-left: -10%;
 	padding-left: 5%;
@@ -16,12 +16,17 @@ body {
 h1 {
 	font-size: 96px;
 	font-weight: bold;
+	float: left;
+}
 
+.x {
+	float: left;
 }
 
 .addBtn {
 	background-color: black;
 	color: #c4f6ff;
+	margin-bottom: 5%;
 }
 .addIt {
 	background-color: black;
@@ -34,13 +39,21 @@ h1 {
 
 }
 
-.btn-md {
+.glyphicon-remove {
+	color: red;
+}
+
+.removeBtn, .editBtn {
 	background-color: black;
 	color: #c4f6ff;
 }
 
 .tableRow {
 	margin-top: 5%;
+}
+
+.formRow {
+	margin-bottom: 5%;
 }
 
 div.menuBtns {
@@ -56,5 +69,6 @@ h2 {
 h5 {
 	padding-left: 5%;
 	font-size: 18px;
+	margin-top: 2%;
 }
 	

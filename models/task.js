@@ -9,6 +9,7 @@ var taskSchema = new mongoose.Schema({
   assignedTo: {type: String},
   dueBy: {type: String},
   priority: {type: String},
+  progress: {type: String},
   completedAt: {type: String}
 });
 

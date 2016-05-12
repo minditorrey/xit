@@ -1,1 +1,35 @@
 <h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>
+
+<div class="row tableRow">
+	<div class="col-sm-8 col-sm-offset-2">
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Task</th>
+		      <th>Priority</th>
+		      <th>Assigned By</th>
+		      <th>Assigned To</th>
+		      <th>Due By</th>
+		      <th>Progress</th>
+		      <th>Completed At</th>
+		      <th>Edit</th>
+		      <th>Remove</th>
+
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="task in tasks">
+		      <td>{{task.description}}</td>
+		      <td>{{task.priority}}</td>
+		      <td>{{task.assignedBy}}</td>
+		      <td>{{task.assignedTo}}</td>
+		      <td>{{task.dueBy}}</td>
+		      <td>{{task.progress}}</td>
+		      <td>{{task.completedAt}}</td>
+      		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
+              <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>
+
+		  </tbody>
+		</table>
+	</div>
+</div>

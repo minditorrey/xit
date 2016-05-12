@@ -1,46 +1,66 @@
 <h5>Here are all tasks, {{user.givenName}}.</h5>
 <div class="row">
-	<button class="btn btn-lg addIt" ng-click="showTable()"s>Add New Task</button>
+	<button class="btn btn-lg addIt" ng-click="showTaskForm()">Add New Task</button>
 </div>
 
-<div class="row">
+<div class="row formRow">
 	<div class="col-sm-6 col-sm-offset-2">
-		<form ng-submit='submitForm()'>
+		<form ng-model="thisTaskEdit" ng-hide="taskForm">
       
       		<div class="form-group">
       		  <label>Task Description</label>
-      		  <input type="text" class="form-control" required ng-model='task.username'>
+      		  <input type="text" class="form-control" required ng-model='thisTaskEdit.description'>
       		</div>
 		
       		<div class="form-group">
       		  <label>Priority</label>
-      		  <input type="text" class="form-control" required ng-model='task.priority'>
+      		  <input type="text" placeholder="urgent, standard, no rush" class="form-control" required ng-model='thisTaskEdit.priority'>
       		</div>
 		
       		<div class="form-group">
       		  <label>Assigned By</label>
-      		  <input type="text" class="form-control" required ng-model='task.assignedBy'>
+      		  <input type="text" class="form-control" placeholder="First Last" required ng-model='thisTaskEdit.assignedBy'>
       		</div>
+
+      		<div class="form-group">
+      		  <label>Assigned To</label>
+      		  <input type="email" placeholder="john@me.com" class="form-control" required ng-model='thisTaskEdit.assignedTo'>
+      		</div>
+      		
 
       		<div class="form-group">
       		  <label>Due By</label>
-      		  <input type="text" class="form-control" required ng-model='task.dueBy'>
+      		  <input type="datetime-local" class="form-control" required ng-model='thisTaskEdit.dueBy'>
       		</div>
+      		  	    <div class="dropdown">
+  						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Progress
+    					<span class="caret"></span>
+  						</button>
+  						<ul class="dropdown-menu" ng-click="$event.stopPropagation()" aria-labelledby="dropdownMenu1">
+  							
+    						<li><a href="#">Working on it!</a></li>
+    						<li><a href="#">Almost!</a></li>
+    						<li role="separator" class="divider"></li>
+    						<li><a href="#"> <span class="
+							glyphicon glyphicon-remove"></span></a></li>
+							<input type="hidden" ng-model="thisTaskEdit.progress">
 
+  						</ul>
+					</div>
       		<div class="form-group">
-      		  <label>Completed At</label>
-      		  <input type="text" class="form-control" required ng-model='task.completedAt'>
+      			<label>Completed At: </label>  
+      		  <input type="datetime-local" class="form-control" ng-model='thisTaskEdit.completedAt'>
       		</div>
       		
 		
-      		<button class="btn btn-lg addBtn">Add Task</button>     
+      		<button class="btn btn-lg addBtn" ng-click="addTask(thisTaskEdit)">Add Task</button>     
     	</form>
     </div>
 </div>
 
 <div class="row tableRow">
 	<div class="col-sm-8 col-sm-offset-2">
-		<table class="table">
+		<table class="table table-striped">
 		  <thead>
 		    <tr>
 		      <th>Task</th>
@@ -48,18 +68,21 @@
 		      <th>Assigned By</th>
 		      <th>Assigned To</th>
 		      <th>Due By</th>
+		      <th>Progress</th>
 		      <th>Completed At</th>
-		      <th></th>
-		      <th></th>
+		      <th>Edit</th>
+		      <th>Remove</th>
+
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr>
+		    <tr ng-repeat="task in tasks">
 		      <td>{{task.description}}</td>
+		      <td>{{task.priority}}</td>
 		      <td>{{task.assignedBy}}</td>
 		      <td>{{task.assignedTo}}</td>
 		      <td>{{task.dueBy}}</td>
-		      <td>{{task.priority}}</td>
+		      <td>{{task.progress}}</td>
 		      <td>{{task.completedAt}}</td>
       		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
               <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>
@@ -68,3 +91,4 @@
 		</table>
 	</div>
 </div>
+
