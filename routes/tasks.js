@@ -30,14 +30,6 @@ router.route('/:id')
     })
   })
 
-router.route('/:email')
-  .get((req, res) => {
-  	var currentUser = req.body;
-  	console.log('currentUser:', currentUser);
-  	Task.find({"email": currentUser}, (err, tasks) => {
-  		res.status(err ? 400 : 200).send(err || tasks);
-  	})
-  })
 
 router.get('/', (req, res) => {
   Task.find({}, (err, tasks) => {
@@ -45,5 +37,16 @@ router.get('/', (req, res) => {
   });
 });
 
+
+router.route('/:email')
+	.get((req, res) => {
+		console.log(req.params.email)
+		Task
+		.find({assignedTo: req.params.email})
+		.exec((err, tasks) => {
+			console.log(tasks)
+			res.status(err ? 400 : 200).send(err || tasks);
+		})
+	})
 
 module.exports = router;

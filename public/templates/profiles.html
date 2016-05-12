@@ -1,7 +1,13 @@
 <h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>
+<h6>{{user.email}}</h6>
+
+<div class="row">
+	<img class="profilePic" ng-src="{{href}}" alt="">
+
+</div>
 
 <div class="row tableRow">
-	<div class="col-sm-8 col-sm-offset-2">
+	<div class="col-sm-10 col-sm-offset-1">
 		<table class="table table-striped">
 		  <thead>
 		    <tr>
@@ -21,7 +27,7 @@
 		    <tr ng-repeat="task in tasks">
 		      <td>{{task.description}}</td>
 		      <td>{{task.priority}}</td>
-		      <td>{{task.assignedBy}}</td>
+		      <td>{{task.email}}</td>
 		      <td>{{task.assignedTo}}</td>
 		      <td>{{task.dueBy}}</td>
 		      <td>{{task.progress}}</td>

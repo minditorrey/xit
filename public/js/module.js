@@ -31,7 +31,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('profiles', {
 			url: '/profiles',
 			templateUrl: '/templates/profiles.html',
-			controller: 'tasksController'
+			controller: 'profilesController'
 		})
 
 

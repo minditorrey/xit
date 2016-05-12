@@ -59,7 +59,10 @@ h1 {
 div.menuBtns {
 	margin-left: 70%;
 	margin-bottom: 2%;
+}
 
+.profilePic {
+	max-width: 150px;
 }
 
 h2 {
@@ -69,6 +72,11 @@ h2 {
 h5 {
 	padding-left: 5%;
 	font-size: 18px;
+	margin-top: 2%;
+}
+
+h6 {
+	padding-left: 5%;
 	margin-top: 2%;
 }
 	

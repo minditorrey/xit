@@ -4,8 +4,8 @@ var app = angular.module('xitApp');
 
 app.service('ProfileService', function($http) {
 	
-	this.getCurrent = (email) => {
-		return $http.get('/api/tasks/email');	
+	this.emailSort = (email) => {
+		return $http.get(`/api/tasks/${email}`);	
 	};
 })
 

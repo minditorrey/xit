@@ -31,6 +31,13 @@ app.use(stormpath.init(app, {
     register: {
       form: {
         fields: {
+          profilePic: {
+            enabled: true,
+            label: 'image url',
+            name: 'profilePic',
+            required: false,
+            type: 'text'
+          },
           favoriteColor: {
             enabled: true,
             label: 'Favorite Color',
