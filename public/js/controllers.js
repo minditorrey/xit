@@ -3,35 +3,6 @@
 var app = angular.module('xitApp');
 
 
-// app.controller('profilesController', function($scope, ProfileService, TaskService) {
-// // app.controller('profilesController', function($scope, ProfileService, TaskService) {
-//     console.log('profilesCtrl!');
-
-	
-// ProfileService.getCurrent($scope.user.email)
-// .then(res => {
-//     $scope.user.email = res.data; 
-
-
-// $scope.emailSort();
-//     })
-//     .catch(err => {
-//         console.log('err:', err);
-//     });
-
-//     $scope.emailSort = function() {
-//     	var email = $scope.user.email;
-//     	console.log("YES")
-//     	ProvileService.emailSort(email)
-//     	.then( res => {
-//     		$scope.sortedTasks = res.data;
-//     		var tasks = $scope.tasks;
-//     		console.log('email:', email)
-//     	})
-//     }
-
-// });
-
 app.controller('profilesController', function($rootScope, $scope, TaskService, ProfileService) {
 
 	var email = $rootScope.user.email;
@@ -45,15 +16,16 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
     .then(res => {
     	$scope.tasks = res.data;
     	var tasks = $scope.tasks;
-    	console.log('tasks:', tasks)
-    	console.log('email:', email)
-    	// console.log('user:', user);
     })
 
+  
 $scope.updateProfile = function(thisProfileEdit){
     ProfileService.updateProfile(thisProfileEdit)
     .then(res => {
     	$scope.user = res.data;
+    	$scope.thisProfileEdit = "";
+    	$scope.showForm = false;
+    	location.reload;
     })
 }
 
