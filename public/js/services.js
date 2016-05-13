@@ -5,8 +5,12 @@ var app = angular.module('xitApp');
 app.service('ProfileService', function($http) {
 	
 	this.emailSort = (email) => {
-		return $http.get(`/api/tasks/${email}`);	
-	};
+		return $http.get(`/api/tasks/${email}`);
+}
+	this.updateProfile = (user) => {
+		console.log("SOMETHING")
+		return $http.post('/api/tasks/updateProfile', user);
+	}	
 })
 
 

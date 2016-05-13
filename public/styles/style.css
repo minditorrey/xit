@@ -32,6 +32,7 @@ h1 {
 	background-color: black;
 	color: #c4f6ff;
 	margin-left: 6%;
+	margin-bottom: 3%;
 }
 .black {
 	background-color: #c4f6ff;
@@ -49,7 +50,7 @@ h1 {
 }
 
 .tableRow {
-	margin-top: 5%;
+	margin-top: 2%;
 }
 
 .formRow {
@@ -76,7 +77,26 @@ h5 {
 }
 
 h6 {
-	padding-left: 5%;
+	padding-left: 6%;
 	margin-top: 2%;
 }
-	
+
+.profilePic {
+	padding-left: 6%;
+}
+
+.profileInfo {
+	margin-top: -5px;
+}
+
+.red {
+	color: red;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.searchBox {
+	margin-top: 5%;
+	margin-left: -8%;
+
+}

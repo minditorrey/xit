@@ -5,6 +5,10 @@
 
 <div class="row formRow">
 	<div class="col-sm-6 col-sm-offset-2">
+		<div class="searchBox">
+		<label class="searchBox red" for="search">Search Tasks:</label>
+		<input class = "searchInput" type="text" ng-model="sortByName">
+		</div>
 		<form ng-model="thisTaskEdit" ng-hide="taskForm">
       
       		<div class="form-group">
@@ -32,23 +36,9 @@
       		  <label>Due By</label>
       		  <input type="datetime-local" class="form-control" required ng-model='thisTaskEdit.dueBy'>
       		</div>
-      		  	    <div class="dropdown">
-  						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Progress
-    					<span class="caret"></span>
-  						</button>
-  						<ul class="dropdown-menu" ng-click="$event.stopPropagation()" aria-labelledby="dropdownMenu1">
-  							
-    						<li><a href="#">Working on it!</a></li>
-    						<li><a href="#">Almost!</a></li>
-    						<li role="separator" class="divider"></li>
-    						<li><a href="#"> <span class="
-							glyphicon glyphicon-remove"></span></a></li>
-							<input type="hidden" ng-model="thisTaskEdit.progress">
 
-  						</ul>
-					</div>
       		<div class="form-group">
-      			<label>Completed At: </label>  
+      		  <label>Completed At: </label>  
       		  <input type="datetime-local" class="form-control" ng-model='thisTaskEdit.completedAt'>
       		</div>
       		
@@ -68,7 +58,6 @@
 		      <th>Assigned By</th>
 		      <th>Assigned To</th>
 		      <th>Due By</th>
-		      <th>Progress</th>
 		      <th>Completed At</th>
 		      <th>Edit</th>
 		      <th>Remove</th>
@@ -76,13 +65,12 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr ng-repeat="task in tasks">
+		    <tr ng-repeat="task in tasks | filter: sortByName">
 		      <td>{{task.description}}</td>
 		      <td>{{task.priority}}</td>
 		      <td>{{task.assignedBy}}</td>
 		      <td>{{task.assignedTo}}</td>
 		      <td>{{task.dueBy}}</td>
-		      <td>{{task.progress}}</td>
 		      <td>{{task.completedAt}}</td>
       		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
               <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>

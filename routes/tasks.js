@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var stormpath = require('express-stormpath');
 var Task = require('../models/task');
 
 
@@ -48,5 +48,23 @@ router.route('/:email')
 			res.status(err ? 400 : 200).send(err || tasks);
 		})
 	})
+
+
+router.post('/updateProfile', stormpath.loginRequired, (req, res, test) => {
+	console.log('req.body:', req.body);
+	// console.log('res:', res);
+	// console.log('test:', test);
+
+	req.user.customData.profilePic = req.body.profilePic;
+	req.user.customData.department = req.body.department;
+	req.user.customData.supervisor = req.body.supervisor;
+	req.user.customData.favoriteColor = req.body.favoriteColor;
+	req.user.save((err, savedUser) => {
+		console.log("YOU", savedUser)
+	res.send(savedUser);
+	})
+})
+
+
 
 module.exports = router;

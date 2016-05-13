@@ -26,12 +26,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		.state('tasks', {
 			url: '/tasks',
 			templateUrl: '/templates/tasks.html',
-			controller: 'tasksController'
+			controller: 'tasksController',
+			sp: {
+				authenticate: true
+			}
 		})
 		.state('profiles', {
 			url: '/profiles',
 			templateUrl: '/templates/profiles.html',
-			controller: 'profilesController'
+			controller: 'profilesController',
+			sp: {
+				authenticate: true
+			}
 		})
 
 

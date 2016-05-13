@@ -3,59 +3,63 @@
 var app = angular.module('xitApp');
 
 
-app.controller('asd', function($scope, ProfileService, TaskService) {
 // app.controller('profilesController', function($scope, ProfileService, TaskService) {
-    console.log('profilesCtrl!');
-
-
-    // TaskService.getAll($scope.tasks)
-    // .then(res => {
-    //     $scope.tasks = res.data;
-    //     var tasks = $scope.tasks;
-    // })
+// // app.controller('profilesController', function($scope, ProfileService, TaskService) {
+//     console.log('profilesCtrl!');
 
 	
-	ProfileService.getCurrent($scope.user.email)
-	.then(res => {
-        $scope.user.email = res.data; 
+// ProfileService.getCurrent($scope.user.email)
+// .then(res => {
+//     $scope.user.email = res.data; 
 
-$scope.emailSort();
-    })
-    .catch(err => {
-        console.log('err:', err);
-    });
 
-    $scope.emailSort = function() {
-    	var email = $scope.user.email;
-    	console.log("YES")
-    	ProvileService.emailSort(email)
-    	.then( res => {
-    		$scope.sortedTasks = res.data;
-    		var tasks = $scope.tasks;
-    		console.log('email:', email)
-    	})
-    }
+// $scope.emailSort();
+//     })
+//     .catch(err => {
+//         console.log('err:', err);
+//     });
 
-});
+//     $scope.emailSort = function() {
+//     	var email = $scope.user.email;
+//     	console.log("YES")
+//     	ProvileService.emailSort(email)
+//     	.then( res => {
+//     		$scope.sortedTasks = res.data;
+//     		var tasks = $scope.tasks;
+//     		console.log('email:', email)
+//     	})
+//     }
+
+// });
 
 app.controller('profilesController', function($rootScope, $scope, TaskService, ProfileService) {
 
 	var email = $rootScope.user.email;
 	$scope.user = $rootScope.user;
-	$scope.href = $rootScope.user.href;
+	$scope.profilePic = $rootScope.user.customData.profilePic;
 	
 
-    	console.log("YES");
+    console.log("YES");
     	
-    	ProfileService.emailSort(email)
-    	.then( res => {
-    		$scope.tasks = res.data;
-    		var tasks = $scope.tasks;
-    		console.log('tasks:', tasks)
-    		console.log('email:', email)
-    		console.log('user:', user);
-    	})
+    ProfileService.emailSort(email)
+    .then(res => {
+    	$scope.tasks = res.data;
+    	var tasks = $scope.tasks;
+    	console.log('tasks:', tasks)
+    	console.log('email:', email)
+    	// console.log('user:', user);
+    })
+
+$scope.updateProfile = function(thisProfileEdit){
+    ProfileService.updateProfile(thisProfileEdit)
+    .then(res => {
+    	$scope.user = res.data;
+    })
+}
+
+
  })
+
 app.controller('tasksController', function($scope, TaskService, ProfileService) {
     console.log('tasksCtrl!');
     console.log($scope.user)

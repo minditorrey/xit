@@ -1,8 +1,43 @@
 <h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>
-<h6>{{user.email}}</h6>
+
 
 <div class="row">
-	<img class="profilePic" ng-src="{{href}}" alt="">
+	<img class="profilePic" ng-src="{{profilePic}}" alt="">
+	<h6 class="red">{{user.email}}</h6>
+	<h6 class="profileInfo red">Department: {{user.customData.department}}</h6>
+	<h6 class="profileInfo red">Supervisor: {{user.customData.supervisor}}</h6>
+	<h6 class="profileInfo red"> Fun Fact: {{user.customData.favoriteColor}}</h6>
+	
+	<form ng-model="thisProfileEdit" ng-hide="profileForm" ng-submit="updateProfile(thisProfileEdit)">
+      
+      		<div class="form-group">
+      		  <label>Profile Image</label>
+      		  <input type="text" class="form-control" value="{{profilePic}}" ng-model='thisProfileEdit.profilePic'>
+      		</div>
+		
+      		<div class="form-group">
+      		  <label>Department</label>
+      		  <input type="text" class="form-control" ng-model='user.customData.department'>
+      		  <!-- <input type="text" value="{{user.customData.department}}" class="form-control" ng-model='thisProfileEdit.department'> -->
+      		</div>
+		
+      		<div class="form-group">
+      		  <label>Supervisor</label>
+      		  <input type="text" class="form-control" value="{{user.customData.supervisor}}" ng-model='thisProfileEdit.supervisor'>
+      		</div>
+
+      		<div class="form-group">
+      		  <label>Favorite Color</label>
+      		  <input type="text" value="{{user.customData.favoriteColor}}" class="form-control" ng-model='thisProfileEdit.favoriteColor'>
+      		</div>
+      		
+
+      		
+      		
+			<button class="btn btnlg addIt" type="submit">Update Profile</button>
+    
+    	</form>
+
 
 </div>
 
@@ -18,9 +53,6 @@
 		      <th>Due By</th>
 		      <th>Progress</th>
 		      <th>Completed At</th>
-		      <th>Edit</th>
-		      <th>Remove</th>
-
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -32,8 +64,7 @@
 		      <td>{{task.dueBy}}</td>
 		      <td>{{task.progress}}</td>
 		      <td>{{task.completedAt}}</td>
-      		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
-              <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>
+
 
 		  </tbody>
 		</table>

@@ -28,6 +28,11 @@ var stormpath = require('express-stormpath');
 
 app.use(stormpath.init(app, {
   web: {
+    me: {
+      expand: {
+        customData: true
+      }
+    },
     register: {
       form: {
         fields: {
@@ -36,6 +41,20 @@ app.use(stormpath.init(app, {
             label: 'image url',
             name: 'profilePic',
             required: false,
+            type: 'text'
+          },
+          department: {
+            enabled: true,
+            label: 'Department',
+            name: 'department',
+            required: true,
+            type: 'text'
+          },
+          supervisor: {
+            enabled: true,
+            label: 'Supervisor',
+            name: 'supervisor',
+            required: true,
             type: 'text'
           },
           favoriteColor: {
