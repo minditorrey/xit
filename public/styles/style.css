@@ -31,7 +31,7 @@ h1 {
 .addIt {
 	background-color: black;
 	color: #c4f6ff;
-	margin-left: 6%;
+	margin-left: 7%;
 	margin-bottom: 3%;
 }
 .black {
@@ -62,18 +62,18 @@ div.menuBtns {
 	margin-bottom: 2%;
 }
 
-.profilePic {
-	max-width: 150px;
-}
+
 
 h2 {
 	padding-left: 5%;
 }
 
 h5 {
+	color: #04829b;
 	padding-left: 5%;
 	font-size: 18px;
 	margin-top: 2%;
+	margin-left: 1%;
 }
 
 h6 {
@@ -82,15 +82,19 @@ h6 {
 }
 
 .profilePic {
-	padding-left: 6%;
+	max-width: 150px;
+	margin-left: 6%;
+	
+	margin-top: 2%;
+	box-shadow: 2px 2px 1px gray;
 }
 
 .profileInfo {
 	margin-top: -5px;
 }
 
-.red {
-	color: red;
+.blue {
+	color: #04829b;
 	font-weight: bold;
 	font-size: 16px;
 }

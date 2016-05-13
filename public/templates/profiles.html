@@ -1,15 +1,15 @@
-<h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>
+
 
 
 <div class="row">
 	<img class="profilePic" ng-src="{{profilePic}}" alt="">
-	<h6 class="red">{{user.email}}</h6>
-	<h6 class="profileInfo red">Department: {{user.customData.department}}</h6>
-	<h6 class="profileInfo red">Supervisor: {{user.customData.supervisor}}</h6>
-	<h6 class="profileInfo red"> Fun Fact: {{user.customData.favoriteColor}}</h6>
-	
+	<h6 class="blue">{{user.email}}</h6>
+	<h6 class="profileInfo blue">Department: {{user.customData.department}}</h6>
+	<h6 class="profileInfo blue">Supervisor: {{user.customData.supervisor}}</h6>
+	<h6 class="profileInfo blue"> Fun Fact: {{user.customData.favoriteColor}}</h6>
 	<button class="btn btn-lg addIt" ng-click="showForm = !showForm">Update Profile</button>
-	
+	<h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>
+
 	<form ng-model="thisProfileEdit" ng-show="showForm" ng-submit="updateProfile(thisProfileEdit)">
       
       	<div class="form-group">
