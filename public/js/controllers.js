@@ -18,7 +18,7 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
     	var tasks = $scope.tasks;
     })
 
-  
+
 $scope.updateProfile = function(thisProfileEdit){
     ProfileService.updateProfile(thisProfileEdit)
     .then(res => {
@@ -79,17 +79,31 @@ app.controller('tasksController', function($scope, TaskService, ProfileService) 
     
   	}
 
-  	$scope.updateTask = () => {
-    	TaskService.update($scope.thisTaskForm)
+    $scope.editTask = (task) => {
+    	$scope.thisTaskEdit = task;
+    	$scope.showTaskForm(); 
+    	$scope.editFormTask = angular.copy(task); 
+    }
+
+  	$scope.saveChanges = (thisTaskEdit) => {
+    	console.log(thisTaskEdit)
+    	TaskService.update(thisTaskEdit) 	
       	.then(res => {
         	$scope.tasks.forEach((task, i) => {
         	  	if(task._id === res.data._id) {
         	    	$scope.tasks[i] = res.data;
           		}
         	})
-        	$scope.thisTaskFrom = null;
+  
+        	$scope.tasks.push($scope.thisTaskEdit);
+        	$scope.thisTaskEdit = null;
+
       	})
-  }
+    }
+
+    $scope.cancelEdit = () => {
+    	$scope.thisTaskEdit = null;
+    };
 
     $scope.removeTask = function(task) {
         TaskService.removeTask(task);
@@ -97,9 +111,7 @@ app.controller('tasksController', function($scope, TaskService, ProfileService) 
         location.reload;
     }
 
-    $scope.editTask = (task) => {
-    	$scope.editFormTask = angular.copy(task); 
-    }
+
 
        
 
