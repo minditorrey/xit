@@ -1,4 +1,4 @@
-var app = angular.module('xitApp', ['ui.router', 'stormpath', 'stormpath.templates', 'ui.bootstrap']);
+var app = angular.module('xitApp', ['ui.router', 'stormpath', 'stormpath.templates']);
 
 app.run(function($stormpath){
   $stormpath.uiRouter({
