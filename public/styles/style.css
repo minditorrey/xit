@@ -66,9 +66,15 @@ h1 {
 	color: red;
 }
 
-.removeBtn, .editBtn {
+.removeBtn, .editBtn  {
 	background-color: #00c7ff;
 	color: #c4f6ff;
+}
+
+.addBtn {
+	background-color: #00c7ff;
+	color: #c4f6ff;	
+	margin-top: 5%;
 }
 
 .tableRow {
