@@ -9,32 +9,32 @@
 			<label class="searchBox red" for="search">Search Tasks:</label>
 			<input class = "searchInput" type="text" ng-model="sortByName">
 		</div>
-		<form name="thisTaskEdit" ng-model="thisTaskEdit" ng-hide="taskForm" ng-submit='saveChanges(thisTaskEdit)'>
+		<form ng-model="thisTaskEdit" ng-hide="taskForm" ng-submit='saveChanges(thisTaskEdit)'>
       
       		<div class="form-group">
       		  <label>Task Description</label>
-      		  <input type="text" class="form-control" required ng-model='thisTaskEdit.description'>
+      		  <input type="text" class="form-control" ng-model='thisTaskEdit.description'>
       		</div>
 		
       		<div class="form-group">
       		  <label>Priority</label>
-      		  <input type="text" placeholder="urgent, standard, no rush" class="form-control" required ng-model='thisTaskEdit.priority'>
+      		  <input type="text" placeholder="urgent, standard, no rush" class="form-control" ng-model='thisTaskEdit.priority'>
       		</div>
 		
       		<div class="form-group">
       		  <label>Assigned By</label>
-      		  <input type="text" class="form-control" placeholder="First Last" required ng-model='thisTaskEdit.assignedBy'>
+      		  <input type="text" class="form-control" placeholder="First Last" ng-model='thisTaskEdit.assignedBy'>
       		</div>
 
       		<div class="form-group">
       		  <label>Assigned To</label>
-      		  <input type="email" placeholder="john@me.com" class="form-control" required ng-model='thisTaskEdit.assignedTo'>
+      		  <input type="email" placeholder="john@me.com" class="form-control" ng-model='thisTaskEdit.assignedTo'>
       		</div>
       		
 
       		<div class="form-group">
       		  <label>Due By</label>
-      		  <input type="datetime-local" class="form-control" required ng-model='thisTaskEdit.dueBy'>
+      		  <input type="datetime-local" class="form-control" ng-model='thisTaskEdit.dueBy'>
       		</div>
 
       		<div class="form-group">
