@@ -31,7 +31,7 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
 
     $scope.cancelEdit = () => {
     $scope.thisProfileEdit = null;
-    $scope.showForm = false;
+    $scope.taskForm = true;
     };
 
  })
@@ -39,6 +39,8 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
 app.controller('tasksController', function($scope, TaskService, ProfileService) {
     console.log('tasksCtrl!');
     console.log($scope.user)
+
+$scope.taskForm = true;
 
     TaskService.getAll($scope.tasks)
     .then(res => {
@@ -55,39 +57,47 @@ app.controller('tasksController', function($scope, TaskService, ProfileService) 
     	$scope.tasks.push($scope.thisTaskEdit);
     	console.log('thistask:', $scope.thisTaskEdit)
         $scope.thisTaskEdit = null;
+        $scope.taskForm = true;
     }
 
-    $scope.taskForm = true;
+    // $scope.taskForm = true;
 
-	$scope.showTaskForm = function() {
-		$taskForm = true;
-	}
 
-	$scope.showTaskForm = function() {
-    	if($scope.taskForm = false) {
+    // $scope.showTaskForm = function() {
+    //     $taskForm = true;
+    // }
+
+    $scope.showTaskForm = function() {
+        if($scope.taskForm = false) {
     $scope.taskForm = true;  
-    	} else {
+        } else {
     $scope.taskForm = false;
-    	};
-  	};
+        };
+    };
 
-  	$scope.tasks = [];
-  	$scope.saveTaskForm = function(thisTaskEdit) {
-    	TaskService.create($scope.thisTaskEdit);
-    	console.log($scope.thisTaskEdit);
-    	$scope.thisTaskForm = $scope.taskForm;  
-    	$scope.tasks.push($scope.thisTaskForm);
-    	$scope.updateTask();
-    	$scope.thisTaskForm = "null";
-    	$scope.taskForm = true;
+
+    $scope.tasks = [];
+    $scope.saveTaskForm = function(thisTaskEdit) {
+        TaskService.create($scope.thisTaskEdit);
+        console.log($scope.thisTaskEdit);
+        $scope.thisTaskForm = $scope.taskForm;  
+        $scope.tasks.push($scope.thisTaskForm);
+        $scope.updateTask();
+        $scope.thisTaskForm = "null";
+        $scope.taskForm = true;
     
-  	}
+    }
 
     $scope.editTask = (task) => {
-    	$scope.thisTaskEdit = task;
-    	$scope.showTaskForm(); 
-    	$scope.editFormTask = angular.copy(task); 
+        $scope.thisTaskEdit = task;
+        $scope.showTaskForm(); 
+        $scope.editFormTask = angular.copy(task); 
     }
+
+    $scope.cancel = () => {
+        $scope.thisTaskEdit = null;
+        $scope.taskForm = true; 
+    };
 
   	$scope.saveChanges = (thisTaskEdit) => {
     	console.log(thisTaskEdit)
@@ -101,14 +111,12 @@ app.controller('tasksController', function($scope, TaskService, ProfileService) 
   
         	$scope.tasks.push($scope.thisTaskEdit);
         	$scope.thisTaskEdit = null;
+            $scope.taskForm = true; 
 
       	})
     }
 
-    $scope.cancelEdit = () => {
-    	$scope.thisTaskEdit = null;
-        $scope.showForm = true;
-    };
+
 
     $scope.removeTask = function(task) {
         TaskService.removeTask(task);

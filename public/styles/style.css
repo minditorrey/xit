@@ -54,12 +54,17 @@ h1 {
 .black {
 	background-color: #c4f6ff;
 	color: #00c7ff;
-
 }
 
 .red {
 	color: #04829b;
 
+}
+
+.myTaskSearch {
+	margin-top: 2%;
+	margin-left: 9%;
+	color: #04829b;
 }
 
 .glyphicon-remove {

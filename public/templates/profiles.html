@@ -20,7 +20,11 @@
 	</div>
 </div>	
 	<div class="row">
-		<h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>	
+		<h5>Here are your tasks, {{user.givenName}}. Good Luck!</h5>
+		<div class="myTaskSearch">
+			<label class="searchMyTasks" for="search">Search Tasks:</label>
+			<input class = "searchMyTasksInput" type="text" ng-model="sortByName">
+		</div>
 	</div>
 
 <div class="row">
@@ -72,7 +76,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr ng-repeat="task in tasks">
+		    <tr ng-repeat="task in tasks | filter: sortByName">
 		      <td>{{task.description}}</td>
 		      <td>{{task.priority}}</td>
 		      <td>{{task.email}}</td>

@@ -6,8 +6,8 @@
 <div class="row formRow">
 	<div class="col-sm-6 col-sm-offset-2">
 		<div class="searchBox">
-		<label class="searchBox red" for="search">Search Tasks:</label>
-		<input class = "searchInput" type="text" ng-model="sortByName">
+			<label class="searchBox red" for="search">Search Tasks:</label>
+			<input class = "searchInput" type="text" ng-model="sortByName">
 		</div>
 		<form ng-model="thisTaskEdit" ng-hide="taskForm" ng-submit='saveChanges(thisTaskEdit)'>
       
@@ -43,7 +43,7 @@
       		</div>
       		
   			<button ng-click="addTask(thisTaskEdit)"class="btn btn-default addBtn">Add Task</button> <button class="btn btn-default editBtn">Save Edit</button> 
-      		<button type="button" class="btn btn-default editBtn" ng-click='cancelEdit()'>Cancel Edit</button>
+      		<button type="button" class="btn btn-default editBtn" ng-click='cancel()'>Cancel Edit</button>
 		
 <!--       		<button class="btn btn-lg addBtn" ng-click="addTask(thisTaskEdit)">Add Task</button>  -->    
     	</form>
