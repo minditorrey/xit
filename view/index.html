@@ -26,13 +26,14 @@
 </head>
 
 <body ng-app='xitApp'>
-<div class="container">
+<div class="container-fluid">
 <div class="row header">
     <div class="col-sm-12">
-        <img class="x" src="http://quiz.wada-ama.org/static/img/card/answer-red-x.png" alt="">
-        <h1>it</h1>
+
+        <h1>Task Control</h1>
         <div class="menuBtns">
             
+            <button class="btn btn-md black" ui-sref="home">Home</button>
             <button class="btn btn-md black" ui-sref="tasks">All Tasks</button>
             <button class="btn btn-md black" ui-sref="profiles">My Tasks</button>
             <button class="btn btn-md black" if-not-user ui-sref="login">Login</button>
@@ -41,6 +42,7 @@
         </div>
     </div>
 </div>
+
 
 
 

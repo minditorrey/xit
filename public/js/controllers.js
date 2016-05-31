@@ -19,16 +19,20 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
     })
 
 
-$scope.updateProfile = function(thisProfileEdit){
-    ProfileService.updateProfile(thisProfileEdit)
-    .then(res => {
-    	$scope.user = res.data;
-    	$scope.thisProfileEdit = "";
-    	$scope.showForm = false;
-    	location.reload;
-    })
-}
+    $scope.updateProfile = function(thisProfileEdit){
+        ProfileService.updateProfile(thisProfileEdit)
+        .then(res => {
+    	   $scope.user = res.data;
+    	   $scope.thisProfileEdit = "";
+    	   $scope.showForm = false;
+    	   location.reload;
+        })
+    }   
 
+    $scope.cancelEdit = () => {
+    $scope.thisProfileEdit = null;
+    $scope.showForm = false;
+    };
 
  })
 
@@ -103,6 +107,7 @@ app.controller('tasksController', function($scope, TaskService, ProfileService) 
 
     $scope.cancelEdit = () => {
     	$scope.thisTaskEdit = null;
+        $scope.showForm = true;
     };
 
     $scope.removeTask = function(task) {

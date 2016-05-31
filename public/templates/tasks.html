@@ -1,6 +1,6 @@
 <h5>Here are all tasks, {{user.givenName}}.</h5>
 <div class="row">
-	<button class="btn btn-lg addIt" ng-click="showTaskForm()">Add New Task</button>
+	<button class="btn btn-lg addTaskBtn" ng-click="showTaskForm()">Add New Task</button>
 </div>
 
 <div class="row formRow">
@@ -72,7 +72,7 @@
 		      <td>{{task.priority}}</td>
 		      <td>{{task.assignedBy}}</td>
 		      <td>{{task.assignedTo}}</td>
-		      <td>{{task.dueBy}}</td>
+		      <td>{{task.dueBy | date: "MM/dd/yyyy 'at' h:mma"}}</td>
 		      <td>{{task.completedAt}}</td>
       		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
               <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>

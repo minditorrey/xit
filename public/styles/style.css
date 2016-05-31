@@ -2,18 +2,25 @@ body {
 	background-color: #c4f6ff;
 
 }
+
+.splash-img {
+	width: 102%;
+	margin-left: -1%;
+	margin-right: -1%;
+}
+
 .header {
-	background-color: black;
+	background-color: #00c7ff;
 	color: #c4f6ff;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	width: 125%;
-	margin-left: -10%;
-	padding-left: 5%;
+	padding-top: 10px;
+	padding-bottom: 8px;
+	width: 102%;
+	margin-bottom: 2%;
 
 }
 
 h1 {
+	margin-left: 5%;
 	font-size: 96px;
 	font-weight: bold;
 	float: left;
@@ -23,20 +30,35 @@ h1 {
 	float: left;
 }
 
+/*.profileInfo {
+	margin-top: 15%;
+}*/
+
 .addBtn {
 	background-color: black;
 	color: #c4f6ff;
 	margin-bottom: 5%;
 }
 .addIt {
-	background-color: black;
+	background-color: #00c7ff;
 	color: #c4f6ff;
-	margin-left: 7%;
 	margin-bottom: 3%;
 }
+
+.cancelIt {
+	background-color: #00c7ff;
+	color: #c4f6ff;
+	margin-bottom: 3%;
+}
+
 .black {
 	background-color: #c4f6ff;
-	color: black;
+	color: #00c7ff;
+
+}
+
+.red {
+	color: #04829b;
 
 }
 
@@ -45,7 +67,7 @@ h1 {
 }
 
 .removeBtn, .editBtn {
-	background-color: black;
+	background-color: #00c7ff;
 	color: #c4f6ff;
 }
 
@@ -62,18 +84,38 @@ div.menuBtns {
 	margin-bottom: 2%;
 }
 
-
+thead {
+	background-color: #00c7ff;
+	color: #c4f6ff;
+}
 
 h2 {
 	padding-left: 5%;
+}
+
+.iconRow {
+	margin-top: 5%;
+}
+
+.clipboard {
+	display: block;
+	margin-right: auto;
+	margin-left: 35%;
+
+}
+
+.description {
+	margin-top: 3%;
+	color: #04829b;
+	font-size: 16px;
 }
 
 h5 {
 	color: #04829b;
 	padding-left: 5%;
 	font-size: 18px;
-	margin-top: 2%;
-	margin-left: 1%;
+	margin-top: 3%;
+	margin-left: 4%;
 }
 
 h6 {
@@ -89,6 +131,15 @@ h6 {
 	box-shadow: 2px 2px 1px gray;
 }
 
+.addTaskBtn {
+	margin-left: 10%;
+	background-color: #00c7ff;
+	color: #c4f6ff;
+}
+td {
+	color: #04829b;
+}
+
 .profileInfo {
 	margin-top: -5px;
 }
@@ -96,7 +147,7 @@ h6 {
 .blue {
 	color: #04829b;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .searchBox {
