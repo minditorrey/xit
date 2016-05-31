@@ -9,8 +9,6 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
 	$scope.user = $rootScope.user;
 	$scope.profilePic = $rootScope.user.customData.profilePic;
 	
-
-    console.log("YES");
     	
     ProfileService.emailSort(email)
     .then(res => {
@@ -37,8 +35,6 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
  })
 
 app.controller('tasksController', function($scope, TaskService, ProfileService) {
-    console.log('tasksCtrl!');
-    console.log($scope.user)
 
 $scope.taskForm = true;
 
@@ -55,7 +51,6 @@ $scope.taskForm = true;
     $scope.addTask = function(thisTaskEdit) {
     	TaskService.create($scope.thisTaskEdit);
     	$scope.tasks.push($scope.thisTaskEdit);
-    	console.log('thistask:', $scope.thisTaskEdit)
         $scope.thisTaskEdit = null;
         $scope.taskForm = true;
     }
@@ -79,7 +74,6 @@ $scope.taskForm = true;
     $scope.tasks = [];
     $scope.saveTaskForm = function(thisTaskEdit) {
         TaskService.create($scope.thisTaskEdit);
-        console.log($scope.thisTaskEdit);
         $scope.thisTaskForm = $scope.taskForm;  
         $scope.tasks.push($scope.thisTaskForm);
         $scope.updateTask();
@@ -100,7 +94,6 @@ $scope.taskForm = true;
     };
 
   	$scope.saveChanges = (thisTaskEdit) => {
-    	console.log(thisTaskEdit)
     	TaskService.update(thisTaskEdit) 	
       	.then(res => {
         	$scope.tasks.forEach((task, i) => {

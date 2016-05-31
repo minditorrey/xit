@@ -9,7 +9,7 @@
 			<label class="searchBox red" for="search">Search Tasks:</label>
 			<input class = "searchInput" type="text" ng-model="sortByName">
 		</div>
-		<form ng-model="thisTaskEdit" ng-hide="taskForm" ng-submit='saveChanges(thisTaskEdit)'>
+		<form name="thisTaskEdit" ng-model="thisTaskEdit" ng-hide="taskForm" ng-submit='saveChanges(thisTaskEdit)'>
       
       		<div class="form-group">
       		  <label>Task Description</label>
