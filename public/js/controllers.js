@@ -3,12 +3,10 @@
 var app = angular.module('xitApp');
 
 app.controller('profilesController', function($rootScope, $scope, TaskService, ProfileService) {
-
 	var email = $rootScope.user.email;
 	$scope.user = $rootScope.user;
 	$scope.profilePic = $rootScope.user.customData.profilePic;
-	
-    	
+		
     ProfileService.emailSort(email)
     .then(res => {
     	$scope.tasks = res.data;
@@ -26,21 +24,19 @@ app.controller('profilesController', function($rootScope, $scope, TaskService, P
     }   
 
     $scope.cancelEdit = () => {
-    $scope.thisProfileEdit = null;
-    $scope.taskForm = true;
+        $scope.thisProfileEdit = null;
+        $scope.taskForm = true;
     };
 
  })
 
 app.controller('tasksController', function($scope, TaskService, ProfileService) {
+    $scope.taskForm = true;
 
-$scope.taskForm = true;
-
-TaskService.getAll($scope.tasks)
-.then(res => {
-    $scope.tasks = res.data;
-    var tasks = $scope.tasks;
-
+    TaskService.getAll($scope.tasks)
+    .then(res => {
+        $scope.tasks = res.data;
+        var tasks = $scope.tasks;
     })
     .catch(err => {
         console.log('err:', err);

@@ -10,42 +10,38 @@
 			<input class = "searchInput" type="text" ng-model="sortByName">
 		</div>
 		<form ng-model="thisTaskEdit" ng-hide="taskForm" ng-submit='saveChanges(thisTaskEdit)'>
-      
       		<div class="form-group">
-      		  <label>Task Description</label>
-      		  <input type="text" class="form-control" ng-model='thisTaskEdit.description'>
+      		  	<label>Task Description</label>
+      		  	<input type="text" class="form-control" ng-model='thisTaskEdit.description'>
       		</div>
 		
       		<div class="form-group">
-      		  <label>Priority</label>
-      		  <input type="text" placeholder="urgent, standard, no rush" class="form-control" ng-model='thisTaskEdit.priority'>
+      		  	<label>Priority</label>
+      		  	<input type="text" placeholder="urgent, standard, no rush" class="form-control" ng-model='thisTaskEdit.priority'>
       		</div>
 		
       		<div class="form-group">
-      		  <label>Assigned By</label>
-      		  <input type="text" class="form-control" placeholder="First Last" ng-model='thisTaskEdit.assignedBy'>
+      		  	<label>Assigned By</label>
+      		  	<input type="text" class="form-control" placeholder="First Last" ng-model='thisTaskEdit.assignedBy'>
       		</div>
 
       		<div class="form-group">
-      		  <label>Assigned To</label>
-      		  <input type="email" placeholder="john@me.com" class="form-control" ng-model='thisTaskEdit.assignedTo'>
-      		</div>
-      		
-
-      		<div class="form-group">
-      		  <label>Due By</label>
-      		  <input type="datetime-local" class="form-control" ng-model='thisTaskEdit.dueBy'>
+      		 	<label>Assigned To</label>
+      		  	<input type="email" placeholder="john@me.com" class="form-control" ng-model='thisTaskEdit.assignedTo'>
       		</div>
 
       		<div class="form-group">
-      		  <label>Completed At: </label>  
-      		  <input type="datetime-local" class="form-control" ng-model='thisTaskEdit.completedAt'>
+      		  	<label>Due By</label>
+      		  	<input type="datetime-local" class="form-control" ng-model='thisTaskEdit.dueBy'>
+      		</div>
+
+      		<div class="form-group">
+      		  	<label>Completed At: </label>  
+      		  	<input type="datetime-local" class="form-control" ng-model='thisTaskEdit.completedAt'>
       		</div>
       		
   			<button ng-click="addTask(thisTaskEdit)"class="btn btn-default addBtn">Add Task</button> <button class="btn btn-default editBtn">Save Edit</button> 
-      		<button type="button" class="btn btn-default editBtn" ng-click='cancel()'>Cancel Edit</button>
-		
-<!--       		<button class="btn btn-lg addBtn" ng-click="addTask(thisTaskEdit)">Add Task</button>  -->    
+      		<button type="button" class="btn btn-default editBtn" ng-click='cancel()'>Cancel Edit</button>    
     	</form>
     </div>
 </div>
@@ -53,32 +49,29 @@
 <div class="row tableRow">
 	<div class="col-sm-10 col-sm-offset-1">
 		<table class="table table-striped">
-		  <thead>
-		    <tr>
-		      <th>Task</th>
-		      <th>Priority</th>
-		      <th>Assigned By</th>
-		      <th>Assigned To</th>
-		      <th>Due By</th>
-		      <th>Completed At</th>
-		      <th>Edit</th>
-		      <th>Remove</th>
-
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr ng-repeat="task in tasks | filter: sortByName">
-		      <td>{{task.description}}</td>
-		      <td>{{task.priority}}</td>
-		      <td>{{task.assignedBy}}</td>
-		      <td>{{task.assignedTo}}</td>
-		      <td>{{task.dueBy | date: "MM/dd/yyyy 'at' h:mma"}}</td>
-		      <td>{{task.completedAt}}</td>
-      		  <td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
-              <td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>
-
-		  </tbody>
+		  	<thead>
+		    	<tr>
+		      		<th>Task</th>
+		      		<th>Priority</th>
+		      		<th>Assigned By</th>
+		      		<th>Assigned To</th>
+		      		<th>Due By</th>
+		      		<th>Completed At</th>
+		      		<th>Edit</th>
+		      		<th>Remove</th>
+		    	</tr>
+		  	</thead>
+		  	<tbody>
+		    	<tr ng-repeat="task in tasks | filter: sortByName">
+		      		<td>{{task.description}}</td>
+		      		<td>{{task.priority}}</td>
+		      		<td>{{task.assignedBy}}</td>
+		      		<td>{{task.assignedTo}}</td>
+		      		<td>{{task.dueBy | date: "MM/dd/yyyy 'at' h:mma"}}</td>
+		      		<td>{{task.completedAt}}</td>
+      		  		<td><button class="btn btn-md btn-default glyphicon glyphicon-pencil editBtn" ng-click="editTask(task)"></button></td>
+              		<td><button class="btn btn-md btn-default glyphicon glyphicon-trash removeBtn" ng-click="removeTask(task)"></button></td>
+		  	</tbody>
 		</table>
 	</div>
 </div>
-

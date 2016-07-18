@@ -2,7 +2,6 @@
 
 var mongoose = require('mongoose');
 
-
 var taskSchema = new mongoose.Schema({
   description: {type: String},
   assignedBy: {type: String},
@@ -12,7 +11,6 @@ var taskSchema = new mongoose.Schema({
   progress: {type: String},
   completedAt: {type: String}
 });
-
 
 var Task = mongoose.model('Task', taskSchema);
 
